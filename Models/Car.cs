@@ -14,7 +14,8 @@ namespace Nechita_Andrei_Proiect.Models
         [Range(1, 300)]
         //[Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
-
+        [Required]
+        public String Description { get; set; }
         [Required]
         public Make Make { get; set; }
         [Required]

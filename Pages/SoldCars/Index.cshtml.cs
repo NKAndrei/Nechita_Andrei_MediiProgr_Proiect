@@ -19,11 +19,37 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.SoldCars
             _context = context;
         }
 
-        public IList<SoldCar> SoldCar { get;set; }
+        public IList<SoldCar> SoldCars { get;set; }
+        public IList<Car> Cars { get; set; }
+        public IList<Customer> Customers { get; set; }
 
         public async Task OnGetAsync()
         {
-            SoldCar = await _context.SoldCar.ToListAsync();
+            SoldCars = await _context.SoldCar.Include(i => i.Car).Include(i => i.Customer).ToListAsync();
+            /*
+            foreach (var element in SoldCars)
+            {
+                var car = _context.Car.Find(element.Car.ID);
+                var customer = _context.Customer.Find(element.Customer.ID);
+                Car newCar = new Car
+                {
+                    ID = car.ID,
+                    Price = car.Price,
+                    Description = car.Description,
+                    Make = car.Make,
+                    Model = car.Model
+                };
+
+                Customer newCustomer = new Customer
+                {
+                    ID = customer.ID,
+                    Name = customer.Name
+                };
+                Customers.Add(newCustomer);
+                Cars.Add(newCar);
+            }
+            */
+            
         }
     }
 }
