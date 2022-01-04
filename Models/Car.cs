@@ -11,10 +11,10 @@ namespace Nechita_Andrei_Proiect.Models
     {
         public int ID { get; set; }
 
-        [Range(1, 300)]
+        [Range(100, 3000)]
         //[Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
-        [Required]
+        [Required, StringLength(150, MinimumLength = 5)]
         public String Description { get; set; }
         [Required]
         public Make Make { get; set; }
