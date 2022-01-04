@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Nechita_Andrei_MediiProgr_Proiect.Data;
 using Nechita_Andrei_Proiect.Models;
+//using Nechita_Andrei_MediiProgr_Proiect.Models;
 
 namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
 {
-    public class CreateModel : PageModel
+    public class CreateModel : CarDetails
     {
         private readonly Nechita_Andrei_MediiProgr_Proiect.Data.Nechita_Andrei_MediiProgr_ProiectContext _context;
 
@@ -18,9 +19,12 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
         {
             _context = context;
         }
-
+        public string TheResult = "not set";
+        public string MyModelState = "not set";
+        
         public IActionResult OnGet()
         {
+            GetDetails(_context);
             return Page();
         }
 
@@ -29,13 +33,43 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string CarMakeType, string CarModelType)
         {
-            if (!ModelState.IsValid)
+            var newCar = new Car();
+            var newCarMake = _context.Make.Find(Int32.Parse(CarMakeType));
+            var newCarModel = _context.CarModel.Find(Int32.Parse(CarModelType));
+            TheResult = CarMakeType + " " + CarModelType;
+            if (newCarMake == null || newCarModel == null)
             {
+                MyModelState = "It Is NULL";
                 return Page();
             }
+            /*
+            Make carMake = new Make
+            {
+                ID = newCarMake.ID,
+                Name = newCarMake.Name
+            };
+            CarModel carModel = new CarModel
+            {
+                ID = newCarModel.ID,
+                Name = newCarModel.Name
+            };
+            */
+            //Car.Make = carMake;
+            //Car.Model = carModel;
+            //newCar.Price = Car.Price;
+            //newCar.Make = newCarMake;
+            //newCar.Model = newCarModel;
+            Car.Model = newCarModel;
+            Car.Make = newCarMake;
+            //if (!ModelState.IsValid)
+            //{
+            //   MyModelState = ModelState.ToString();
+            //    return Page();
+           // }
 
+            //_context.Car.Add(newCar);
             _context.Car.Add(Car);
             await _context.SaveChangesAsync();
 

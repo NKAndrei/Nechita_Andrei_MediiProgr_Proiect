@@ -12,7 +12,7 @@ namespace Nechita_Andrei_Proiect.Models
         public int ID { get; set; }
 
         [Range(1, 300)]
-        [Column(TypeName = "decimal(6,2)")]
+        //[Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
 
         [Required]

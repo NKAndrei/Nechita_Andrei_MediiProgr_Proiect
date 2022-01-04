@@ -13,14 +13,14 @@ namespace Nechita_Andrei_Proiect.Models
         // this can be done in 2 or 3 ways, convention, fluentapi or annotations
         //[ForeignKey("Car")]
         public int ID { get; set; }
-        [Required, StringLength(50, MinimumLength = 3)]
+        //[Required, StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
 
         //public int CarId { get; set; }
 
         //public Car Car { get; set; }
 
-        public ICollection<Car> Car { get; set; }
+        //public ICollection<Car> Car { get; set; }
 
     }
 }

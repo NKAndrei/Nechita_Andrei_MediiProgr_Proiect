@@ -18,18 +18,63 @@
                 <label asp-for="Car.Price" class="control-label"></label>
                 <input asp-for="Car.Price" class="form-control" />
                 <span asp-validation-for="Car.Price" class="text-danger"></span>
+
+                <label asp-for="Car.Make" class="control-label"></label>
+                @Html.DropDownList("CarMake", new SelectList(Model.CarMakeList, "ID", "Name"))
+                <input asp-for="Car.Make.Name" class="form-control" type="hidden" />
+                <!--<select asp-for="Car.Make.ID" class="form-control" asp-items="(new SelectList(Model.CarMakeList, "ID", "Name"))"></select>-->
+                <!--<select asp-for="Car.Make" class="form-control" asp-items="ViewBag.MakeID" name="Make"></select>-->
+                <!--<select asp-for="Book.PublisherId" class="form-control" asp-items="ViewBag.PublisherId"></select>-->
+                <!--<span asp-validation-for="Car.Make" class="text-danger"></span>-->
+
+
+                <label asp-for="Car.Model" class="control-label"></label>
+                @Html.DropDownList("CarModel", new SelectList(Model.CarModelList, "ID", "Name"))
+                <!--<select asp-for="Car.Model" class="form-control" asp-items="ViewBag.ModelID" name="Car.Model"></select>-->
+                <input asp-for="Car.Model.Name" class="form-control" type="hidden" />
+                <!--<span asp-validation-for="Model" class="text-danger"></span>-->
+                @{
+                    if (Model.validationErrors != null)
+                    {
+
+
+                        foreach (var errorstring in Model.validationErrors)
+                        {
+                            <p>@errorstring</p>
+                        }
+                    }
+                }
+                @{
+
+
+
+                    foreach (var cars in Model.CarModelList)
+                    {
+                        <p>@cars.Name</p>
+                    }
+
+                    if (Model.newCarModel != null)
+                    {
+                        <p>Model.newCarModel.ID</p>
+                        <p>Model.newCarModel.Name</p>
+                    }
+
+                }
+
+
+
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

@@ -19,6 +19,29 @@
                 <span asp-validation-for="Car.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
+
+                @{
+                    foreach (var carModel in Model.CarModelList)
+                    {
+                        <tr>@carModel.Name</tr>
+                    }
+                }
+
+            </div>
+            <div class="form-group">
+                <p>The result is @Model.TheResult </p>
+                <p>STATE: @Model.MyModelState </p>
+
+                @{
+                    foreach (var carMake in Model.CarMakeList)
+                    {
+                        <tr>@carMake.Name</tr>
+                    }
+                }
+                @Html.DropDownList("CarMakeType", new SelectList(Model.CarMakeList, "ID", "Name"))
+                @Html.DropDownList("CarModelType", new SelectList(Model.CarModelList, "ID", "Name"))
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

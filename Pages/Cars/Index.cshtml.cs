@@ -23,7 +23,11 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
 
         public async Task OnGetAsync()
         {
-            Car = await _context.Car.ToListAsync();
+            //Car = await _context.Car.ToListAsync();
+            Car = await _context.Car.Include(b => b.Make).Include(b => b.Model)
+                .AsNoTracking()
+                .OrderBy(b => b.ID)
+                .ToListAsync();
         }
     }
 }

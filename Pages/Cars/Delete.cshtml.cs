@@ -30,6 +30,7 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
             }
 
             Car = await _context.Car.FirstOrDefaultAsync(m => m.ID == id);
+            //Car = await _context.Car.Include(c => c.Make).Include(c => c.Model).AsNoTracking().FirstOrDefaultAsync(c => c.ID == id);
 
             if (Car == null)
             {
