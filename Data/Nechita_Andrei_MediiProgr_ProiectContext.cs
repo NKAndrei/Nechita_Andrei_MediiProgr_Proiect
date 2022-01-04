@@ -23,5 +23,10 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Data
         public DbSet<Nechita_Andrei_Proiect.Models.Make> Make { get; set; }
 
         public DbSet<Nechita_Andrei_Proiect.Models.SoldCar> SoldCar { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SoldCar>().HasIndex(p => p.CarId).IsUnique();
+        }
     }
 }

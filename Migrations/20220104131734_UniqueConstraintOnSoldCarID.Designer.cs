@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nechita_Andrei_MediiProgr_Proiect.Data;
 
 namespace Nechita_Andrei_MediiProgr_Proiect.Migrations
 {
     [DbContext(typeof(Nechita_Andrei_MediiProgr_ProiectContext))]
-    partial class Nechita_Andrei_MediiProgr_ProiectContextModelSnapshot : ModelSnapshot
+    [Migration("20220104131734_UniqueConstraintOnSoldCarID")]
+    partial class UniqueConstraintOnSoldCarID
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

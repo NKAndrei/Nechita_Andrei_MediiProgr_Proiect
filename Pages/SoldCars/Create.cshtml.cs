@@ -85,6 +85,7 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.SoldCars
             Car car = _context.Car.Find(carID);
             Customer customer = _context.Customer.Find(customerID);
 
+            SoldCar.CarId = carID;
             SoldCar.Car = car;
             SoldCar.Customer = customer;
 
