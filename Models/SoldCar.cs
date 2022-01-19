@@ -12,10 +12,12 @@ namespace Nechita_Andrei_Proiect.Models
         public int ID { get; set; }
 
         [Required]
-        public int CarId { get; set; }
+        public int SoldCarSerial { get; set; }
 
         [Required]
-        public Car Car { get; set; }
+        public String SoldCarDescription { get; set; }
+
+        public decimal SoldCarPrice { get; set; }
 
         [Required]
         public Customer Customer { get; set; }

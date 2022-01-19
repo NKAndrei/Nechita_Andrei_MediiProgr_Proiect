@@ -25,30 +25,7 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.SoldCars
 
         public async Task OnGetAsync()
         {
-            SoldCars = await _context.SoldCar.Include(i => i.Car).Include(i => i.Customer).ToListAsync();
-            /*
-            foreach (var element in SoldCars)
-            {
-                var car = _context.Car.Find(element.Car.ID);
-                var customer = _context.Customer.Find(element.Customer.ID);
-                Car newCar = new Car
-                {
-                    ID = car.ID,
-                    Price = car.Price,
-                    Description = car.Description,
-                    Make = car.Make,
-                    Model = car.Model
-                };
-
-                Customer newCustomer = new Customer
-                {
-                    ID = customer.ID,
-                    Name = customer.Name
-                };
-                Customers.Add(newCustomer);
-                Cars.Add(newCar);
-            }
-            */
+            SoldCars = await _context.SoldCar.Include(i => i.Customer).ToListAsync();
             
         }
     }

@@ -15,6 +15,16 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="SoldCar.ID" />
             <div class="form-group">
+                <label asp-for="SoldCar.SoldCarSerial" class="control-label"></label>
+                <span asp-validation-for="SoldCar.SoldCarSerial" class="text-danger"></span>
+
+                <label asp-for="SoldCar.SoldCarPrice" class="control-label"></label>
+                <input asp-for="SoldCar.SoldCarPrice" class="form-control" />
+                <span asp-validation-for="SoldCar.SoldCarPrice" class="text-danger"></span>
+
+                <label asp-for="SoldCar.SoldCarDescription" class="control-label"></label>
+                <input asp-for="SoldCar.SoldCarDescription" class="form-control" />
+                <span asp-validation-for="SoldCar.SoldCarDescription" class="text-danger"></span>
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

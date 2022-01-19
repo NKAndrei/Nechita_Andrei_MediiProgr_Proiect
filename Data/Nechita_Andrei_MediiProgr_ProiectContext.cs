@@ -26,7 +26,7 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<SoldCar>().HasIndex(p => p.CarId).IsUnique();
+            modelBuilder.Entity<SoldCar>().HasIndex(p => p.SoldCarSerial).IsUnique();
             modelBuilder.Entity<Make>().HasIndex(p => p.Name).IsUnique();
             modelBuilder.Entity<CarModel>().HasIndex(p => p.Name).IsUnique();
         }

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Nechita_Andrei_MediiProgr_Proiect.Data;
 using Nechita_Andrei_Proiect.Models;
-//using Nechita_Andrei_MediiProgr_Proiect.Models;
 
 namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
 {
@@ -44,32 +43,10 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
                 MyModelState = "It Is NULL";
                 return Page();
             }
-            /*
-            Make carMake = new Make
-            {
-                ID = newCarMake.ID,
-                Name = newCarMake.Name
-            };
-            CarModel carModel = new CarModel
-            {
-                ID = newCarModel.ID,
-                Name = newCarModel.Name
-            };
-            */
-            //Car.Make = carMake;
-            //Car.Model = carModel;
-            //newCar.Price = Car.Price;
-            //newCar.Make = newCarMake;
-            //newCar.Model = newCarModel;
+            
             Car.Model = newCarModel;
             Car.Make = newCarMake;
-            //if (!ModelState.IsValid)
-            //{
-            //   MyModelState = ModelState.ToString();
-            //    return Page();
-           // }
-
-            //_context.Car.Add(newCar);
+            
             _context.Car.Add(Car);
             await _context.SaveChangesAsync();
 

@@ -14,8 +14,9 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SoldCars[0].Car.Description)
-                @Html.DisplayNameFor(model => model.SoldCars[0].Car.Price)
+                @Html.DisplayNameFor(model => model.SoldCars[0].SoldCarSerial)
+                @Html.DisplayNameFor(model => model.SoldCars[0].SoldCarDescription)
+                @Html.DisplayNameFor(model => model.SoldCars[0].SoldCarPrice)
                 @Html.DisplayNameFor(model => model.SoldCars[0].Customer.Name)
             </th>
         </tr>
@@ -24,8 +25,9 @@
 @foreach (var item in Model.SoldCars) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Car.Description)
-                @Html.DisplayFor(modelItem => item.Car.Price)
+                @Html.DisplayFor(modelItem => item.SoldCarSerial)
+                @Html.DisplayFor(modelItem => item.SoldCarDescription)
+                @Html.DisplayFor(modelItem => item.SoldCarPrice)
                 @Html.DisplayFor(modelItem => item.Customer.Name)
             </td>
             <td>

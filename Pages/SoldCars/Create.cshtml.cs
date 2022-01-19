@@ -85,16 +85,13 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.SoldCars
             Car car = _context.Car.Find(carID);
             Customer customer = _context.Customer.Find(customerID);
 
-            SoldCar.CarId = carID;
-            SoldCar.Car = car;
+            SoldCar.SoldCarSerial = carID;
+            SoldCar.SoldCarPrice = car.Price;
+            SoldCar.SoldCarDescription = car.Description;
             SoldCar.Customer = customer;
 
-            //if (!ModelState.IsValid)
-           // {
-            //    return Page();
-            //}
-
             _context.SoldCar.Add(SoldCar);
+            _context.Car.Remove(car);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

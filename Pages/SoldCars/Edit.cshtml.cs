@@ -41,14 +41,13 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.SoldCars
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Attach(SoldCar).State = EntityState.Modified;
+            SoldCar soldCarUpdate = await _context.SoldCar.AsNoTracking().FirstOrDefaultAsync(c => c.ID == id);
+            soldCarUpdate.SoldCarDescription = SoldCar.SoldCarDescription;
+            soldCarUpdate.SoldCarPrice = SoldCar.SoldCarPrice;
+            _context.Attach(soldCarUpdate).State = EntityState.Modified;
+            //_context.Attach(SoldCar).State = EntityState.Modified;
 
             try
             {
