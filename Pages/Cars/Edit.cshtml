@@ -37,33 +37,33 @@
                 <!--<select asp-for="Car.Model" class="form-control" asp-items="ViewBag.ModelID" name="Car.Model"></select>-->
                 <input asp-for="Car.Model.Name" class="form-control" type="hidden" />
                 <!--<span asp-validation-for="Model" class="text-danger"></span>-->
-                @{
-                    if (Model.validationErrors != null)
-                    {
+                <!--{
+        if (Model.validationErrors != null)
+        {
 
 
-                        foreach (var errorstring in Model.validationErrors)
-                        {
-                            <p>@errorstring</p>
-                        }
-                    }
-                }
-                @{
+            foreach (var errorstring in Model.validationErrors)
+            {
+                <p>errorstring</p>
+            }
+        }
+    }
+    {
 
 
 
-                    foreach (var cars in Model.CarModelList)
-                    {
-                        <p>@cars.Name</p>
-                    }
+        foreach (var cars in Model.CarModelList)
+        {
+            <p>cars.Name</p>
+        }
 
-                    if (Model.newCarModel != null)
-                    {
-                        <p>Model.newCarModel.ID</p>
-                        <p>Model.newCarModel.Name</p>
-                    }
+        if (Model.newCarModel != null)
+        {
+            <p>Model.newCarModel.ID</p>
+            <p>Model.newCarModel.Name</p>
+        }
 
-                }
+    }-->
 
 
 
