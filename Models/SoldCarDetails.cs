@@ -8,7 +8,6 @@ using Nechita_Andrei_MediiProgr_Proiect.Data;
 using Nechita_Andrei_Proiect.Models;
 
 namespace Nechita_Andrei_Proiect.Models
-//namespace Nechita_Andrei_MediiProgr_Proiect.Models
 {
     public class SoldCarDetails : PageModel
     {

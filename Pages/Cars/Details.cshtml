@@ -11,7 +11,7 @@
     <h4>Car</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-10">
             @Html.DisplayNameFor(model => model.Car.Price)
             @Html.DisplayNameFor(model => model.Car.Description)
             @Html.DisplayNameFor(model => model.Car.Make)
@@ -20,8 +20,8 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Car.Price)
             @Html.DisplayFor(model => model.Car.Description)
-            @Html.DisplayFor(model => model.Car.Make)
-            @Html.DisplayFor(model => model.Car.Model)
+            @Html.DisplayFor(model => model.Car.Make.Name)
+            @Html.DisplayFor(model => model.Car.Model.Name)
         </dd>
     </dl>
 </div>

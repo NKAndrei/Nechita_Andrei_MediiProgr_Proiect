@@ -92,7 +92,6 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
                     throw;
                 }
             }
-            return Page();
             return RedirectToPage("./Index");
         }
         

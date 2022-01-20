@@ -28,7 +28,7 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.SoldCars
                 return NotFound();
             }
 
-            SoldCar = await _context.SoldCar.FirstOrDefaultAsync(m => m.ID == id);
+            SoldCar = await _context.SoldCar.Include("Customer").FirstOrDefaultAsync(m => m.ID == id);
 
             if (SoldCar == null)
             {

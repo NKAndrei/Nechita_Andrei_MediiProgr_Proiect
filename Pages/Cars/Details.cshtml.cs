@@ -28,7 +28,7 @@ namespace Nechita_Andrei_MediiProgr_Proiect.Pages.Cars
                 return NotFound();
             }
 
-            Car = await _context.Car.FirstOrDefaultAsync(m => m.ID == id);
+            Car = await _context.Car.Include("Model").Include("Make").FirstOrDefaultAsync(m => m.ID == id);
 
             if (Car == null)
             {
